@@ -7,8 +7,8 @@ LABEL maintainer="Juan Esteban Henao - jhenaom6@eafit.edu.co"
 ARG PORT=3000
 ENV PORT $PORT
 
-COPY package*.json ./
 WORKDIR /nodeApp
+
 COPY . ./
 
 RUN npm install 

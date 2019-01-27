@@ -10,7 +10,7 @@ ENV PORT $PORT
 WORKDIR /nodeApp
 COPY . ./
 
-RUN npm install --test
+RUN npm install express express-handlebars express-session method-override monoose passport passport-local bcryptjs connect-flash
 
 EXPOSE 3000
 CMD npm start

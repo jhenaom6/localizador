@@ -22,16 +22,18 @@
     </div>
   </div>
 
+
   {{else}}
-  <div class="card mx-auto">
-    <div class="card-body">
-      <h1>Hola {{user.nombre}}</h1>
-      <p clsss="lead">Aún no tienes rutas</p>
-      <a href="/rutas/nueva-ruta" class="btn btn-success btn-block">Crear nueva Ruta</a>
+    <div class="card mx-auto">
+      <div class="card-body">
+        <h1>Hola {{user.nombre}}</h1>
+        <p clsss="lead">Aún no tienes rutas</p>
+        <a href="/rutas/nueva-ruta" class="btn btn-success btn-block">Crear nueva Ruta</a>
+      </div>
     </div>
-  </div>
   {{/each}}
 
+  {{#if rutasdb}}
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
@@ -41,6 +43,6 @@
         </div>
       </div>
     </div>
-
+  {{/if}}  
 </div>
 

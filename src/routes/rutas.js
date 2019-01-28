@@ -17,7 +17,6 @@ router.post('/rutas/nueva-ruta',  async(req, res) => {
   if (errors.length > 0) {
     res.render('rutas/nuevaRuta', {errors, nombre });
   } else {
-  	console.log(nombre);
   	const nvaRuta = new Ruta({nombre});
   	await nvaRuta.save();
     res.redirect('/rutas');

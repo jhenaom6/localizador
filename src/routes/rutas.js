@@ -45,4 +45,5 @@ router.delete('/rutas/eliminar/:id', async (req, res) => {
   await Ruta.findByIdAndDelete(req.params.id);
   res.redirect('/rutas');
 });
+
 module.exports = router;

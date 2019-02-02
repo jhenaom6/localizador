@@ -1,7 +1,7 @@
 FROM node:9.6.1
 
 LABEL version="2.0"
-LABEL description="Web app Articulos NodeJS"
+LABEL description="GPS Web NodeJS"
 LABEL maintainer="Juan Esteban Henao - jhenaom6@eafit.edu.co"
 
 ARG PORT=3000

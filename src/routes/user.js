@@ -43,4 +43,9 @@ router.get('/user/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/user/amigos', async(req, res) => {
+  const userdb = await User.find()
+  res.render('user/amigo', { userdb });
+});
+
 module.exports = router;

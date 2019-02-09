@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const body = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -23,7 +24,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //middlewares, override permite otros tipos de msm, no solo put o get
-app.use(express.urlencoded({extended: false}));
+app.use(body.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'secret',

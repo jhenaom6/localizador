@@ -1,0 +1,37 @@
+<div class="row">
+  {{#each userdb}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{ nombre }} 
+        </h4>
+
+        <form action="/user/compartirRuta" method="GET">
+          <button  type="submit" class="btn btn-primary btn-block btn-sm">
+            Compartir Con este amigo
+          </button>
+        </form>
+
+        <BR>        
+
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+  
+  {{#if userdb}}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <form action="/rutas" method="GET">      
+          <button  type="submit" class="btn btn-success btn-block btn-sm">
+            Regresar a Mis Rutas
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/if}}  
+</div>

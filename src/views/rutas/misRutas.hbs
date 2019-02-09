@@ -14,10 +14,19 @@
         <!-- DELETE REQUEST -->
         
 
+        <form action="/user/amigos" method="GET">      
+          <button  type="submit" class="btn btn-primary btn-block btn-sm">
+            Compartir
+          </button>
+        </form>
+
+        <BR>
+
         <form action="/rutas/eliminar/{{_id}}?_method=DELETE" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
-        </form> 
+        </form>
+    
       </div>
     </div>
   </div>
@@ -28,7 +37,9 @@
       <div class="card-body">
         <h1>Hola {{user.nombre}}</h1>
         <p clsss="lead">Aún no tienes rutas</p>
-        <a href="/rutas/nueva-ruta" class="btn btn-success btn-block">Crear nueva Ruta</a>
+        <form action="/rutas/nueva-ruta" method="GET">
+            <button type="submit" class="btn btn-success btn-block btn-sm">Crear nueva Ruta</button>
+        </form>
       </div>
     </div>
   {{/each}}
@@ -37,12 +48,15 @@
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title d-flex justify-content-between align-items-center">
-            <a href="/rutas/nueva-ruta" class="btn btn-success btn-block">Crear nueva Ruta</a>
-          </h4>
+          <form action="/rutas/nueva-ruta" method="GET">
+            <button type="submit" class="btn btn-success btn-block btn-sm">Crear nueva Ruta</button>
+          </form>
         </div>
       </div>
     </div>
   {{/if}}  
+
 </div>
+
+
 

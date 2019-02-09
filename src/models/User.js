@@ -7,6 +7,10 @@ const UserSchema = new Schema({
   nombre: {type: String, required: true},
   email: {type: String, required: true},
   contrasena: {type: String,  require: true},
+  rutas:[{
+  	type: mongoose.Schema.Types.ObjectId,
+  	ref: "Ruta"
+  }]
 
 });
 

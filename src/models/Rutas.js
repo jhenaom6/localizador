@@ -6,7 +6,7 @@ const RutaSchema = new Schema({
 
   puntos: [{
   	lat: String,
-    lon: String
+    lng: String
   }]
 });
 

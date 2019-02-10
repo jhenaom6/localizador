@@ -47,6 +47,33 @@ router.delete('/rutas/eliminar/:id', async (req, res) => {
   res.redirect('/rutas');
 });
 
+
+router.post('/rutas/verRuta', async (req, res) => {
+   Ruta.findById( {_id: req.body.option }, function async(err, ruta){
+        if(err){
+            console.log(err);
+        } else {
+             res.send(ruta);
+            //res.redirect('/rutas/verMiRuta'); 
+        }
+    })
+   /*Ruta.findById(req.params.id, function(err, ruta){
+      var valores = [];
+        if(err){
+            console.log(err);
+        } else {
+            var nombre = ruta.nombre;
+            var valores = ruta.puntos;
+        res.render('rutas/verMiRuta', {valores, nombre}); 
+        }
+    })*/
+});
+
+router.get('/rutas/verMiRuta/:id', (req, res) => {
+  const _id  = req.params.id;
+  res.render('rutas/verMiRuta', {_id});
+});
+
 router.post("/rutas/guardarRuta", function(req, res){
     guardarRuta(req, res);
 });
@@ -57,7 +84,7 @@ function guardarRuta(req, res) {
     });
 }
 
-function encontrarUsuario(err, user, req, res) {
+function encontrarUsuario (err, user, req, res) {
     if (err) {
         console.log(err)
     } else {
@@ -67,7 +94,7 @@ function encontrarUsuario(err, user, req, res) {
     }
 }
 
-function crearRuta(err, route, user, req, res){
+function crearRuta (err, route, user, req, res){
     if (err) {
         console.log(err)
     } else {

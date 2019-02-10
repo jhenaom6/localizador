@@ -1,35 +1,45 @@
 
 <div class="row">
   {{#each rutasdb}}
-  <div class="col-md-3">
+  <div class="col-md-3" style="margin-bottom: 15px;">    
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title d-flex justify-content-between align-items-center">
-          {{ nombre }} <a href="/rutas/editarRutas/{{_id}}"><i class="fas fa-edit"></i></a>
-        </h4>
-        <!-- 
-          <p>{{ distancia }}</p>
-          <p>{{ tiempo }}</p>
-        -->
-        <!-- DELETE REQUEST -->
-        
+          <h4 class="card-title d-flex justify-content-between align-items-center">
+            {{ nombre }} <a href="/rutas/editarRutas/{{_id}}"><i class="fas fa-edit"></i></a>
+          </h4>   
 
-        <form action="/user/amigos" method="GET">      
-          <button  type="submit" class="btn btn-primary btn-block btn-sm">
+          <!--<form action="/rutas/verMiRuta/{{_id}}" method="POST">      
+            <button  type="submit" class="btn btn-success btn-block btn-sm">
+            Ver
+            </button>
+          </form> -->
+          
+          <form action="/rutas/verMiRuta/{{_id}}" method="GET">
+              <button  class="btn btn-success btn-block">
+                Inspeccionar
+              </button>
+          </form>
+          
+          <BR>
+
+
+          <form action="/user/amigos" method="GET">      
+            <button  type="submit" class="btn btn-primary btn-block btn-sm">
             Compartir
-          </button>
-        </form>
+            </button>
+          </form>
 
-        <BR>
+          <BR>
 
-        <form action="/rutas/eliminar/{{_id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
-        </form>
-    
-      </div>
-    </div>
+          <form action="/rutas/eliminar/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+          </form>
+
+        </div>      
+    </div>    
   </div>
+  
 
 
   {{else}}

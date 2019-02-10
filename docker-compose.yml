@@ -13,17 +13,22 @@ services:
       - nodeapp
   nodeapp:
     container_name: nodeapp
-    restart: always
     build: .
-    ports:
-      - "3000:3000"
     depends_on:
-      - mongo      
-  mongo:
-    container_name: mongo
-    image: mongo
-    volumes:
-      - /data/db2
+      - db  
     ports:
-      - "27017:27017"
+    - "8000:8000"
+    volumes:
+    - .:/usr/src/app
+    - /usr/src/app/node_modules
+        
+  db:
+    image: mongo
+    expose:
+      - "27017"
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
 

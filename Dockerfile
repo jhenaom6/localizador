@@ -1,16 +1,9 @@
-FROM node:9.6.1
-
-LABEL version="2.0"
-LABEL description="GPS Web NodeJS"
-LABEL maintainer="Juan Esteban Henao - jhenaom6@eafit.edu.co"
-
-ARG PORT=3000
-ENV PORT $PORT
-
-WORKDIR /nodeApp
-COPY . ./
-
+FROM node:latest
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
 RUN npm install
-
-EXPOSE 3000
-CMD npm start
+RUN npm install nodemon -g --quiet
+COPY . /usr/src/app
+EXPOSE 8000
+CMD nodemon -L --watch . app.js

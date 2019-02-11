@@ -15,20 +15,18 @@ services:
     container_name: nodeapp
     build: .
     depends_on:
-      - db  
+    - db
     ports:
     - "8000:8000"
     volumes:
     - .:/usr/src/app
     - /usr/src/app/node_modules
-        
   db:
     image: mongo
     expose:
-      - "27017"
+    - "27017"
     volumes:
-      - mongodata:/data/db
+    - mongodata:/data/db
 
 volumes:
   mongodata:
-
